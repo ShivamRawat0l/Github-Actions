@@ -13,3 +13,6 @@ jobs:
 
       - name: Print Status
         run: "echo ${{ steps.last_status.outputs.last_status }}"
+        
+      - name: Error
+        run: slyle-check.sh
