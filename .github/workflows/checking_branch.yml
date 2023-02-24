@@ -9,6 +9,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: check_again
+        id: check_again
         shell: bash
         run: |
           if git rev-parse --verify --quiet main ; then
@@ -18,6 +19,7 @@ jobs:
           fi
         
       - name: check
+        id: check
         shell: bash
         run: |
           if git rev-parse --verify --quiet mainer ; then
