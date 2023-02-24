@@ -1,0 +1,11 @@
+name: Run this when another workflow ran
+workflow_run:
+  workflows: [Last Run status]
+  types: [completed]
+jobs:
+  last-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Status
+        run: "echo ${{ github.event.workflow_run.conclusion }}"
+        
