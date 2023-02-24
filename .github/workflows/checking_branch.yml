@@ -12,19 +12,18 @@ jobs:
         shell: bash
         run: |
           if git rev-parse --verify --quiet main ; then
-            echo "true" >> $status
+            echo "status=true" >> $GITHUB_OUTPUT
           else
-            echo "false" >> $status
+            echo "status=true" >> $GITHUB_OUTPUT
           fi
-          
         
       - name: check
         shell: bash
         run: |
           if git rev-parse --verify --quiet mainer ; then
-            echo "true" >> $status
+           echo "status=true" >> $GITHUB_OUTPUT
           else
-            echo "false" >> $status
+            echo "status=false" >> $GITHUB_OUTPUT
           fi
         
 
