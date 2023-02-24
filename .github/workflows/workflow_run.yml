@@ -1,7 +1,8 @@
 name: Run this when another workflow ran
-workflow_run:
-  workflows: [Last Run status]
-  types: [completed]
+on:
+  workflow_run:
+    workflows: [Last Run status]
+    types: [completed]
 jobs:
   last-job:
     runs-on: ubuntu-latest
