@@ -28,7 +28,7 @@ jobs:
         
 
       - name: Print Status
-        run: "echo ${{ steps.check.outputs.status }}"
+        run: echo ${{ steps.check.outputs.status }}
         
       - name: Print Exist Status
-        run: "echo ${{ steps.check_again.outputs.status }}"
+        run: echo ${{ steps.check_again.outputs.status }}
