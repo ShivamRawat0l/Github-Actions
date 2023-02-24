@@ -6,14 +6,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: check
-        script: bash
+        shell: bash
         run: |
-        git rev-parse --verify --quiet branch_name >> $status
+          git rev-parse --verify --quiet branch_name >> $status
         
       - name: check_again
-        script: bash
+        shell: bash
         run: |
-        git rev-parse --verify --quiet branch_name  >> $status
+          git rev-parse --verify --quiet main >> $status
         
         
       - name: Print Status
