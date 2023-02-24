@@ -13,9 +13,9 @@ jobs:
         shell: bash
         run: |
           if git rev-parse --verify --quiet main ; then
-            echo "status=true" >> "$GITHUB_OUTPUT"
+            echo "status=true" 
           else
-            echo "status=false" >> "$GITHUB_OUTPUT"
+            echo "status=false" 
           fi
         
       - name: check
