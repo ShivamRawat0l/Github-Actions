@@ -1,0 +1,23 @@
+name: Check Branch Exist
+on:
+  workflow_dispatch:
+jobs:
+  last-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: check
+        script: bash
+        run: |
+        git rev-parse --verify --quiet branch_name >> $status
+        
+      - name: check_again
+        script: bash
+        run: |
+        git rev-parse --verify --quiet branch_name  >> $status
+        
+        
+      - name: Print Status
+        run: "echo ${{ steps.check.outputs.status }}"
+        
+      - name: Print Exist Status
+        run: "echo ${{ steps.check_again.outputs.status }}"
