@@ -11,12 +11,21 @@ jobs:
       - name: check_again
         shell: bash
         run: |
-          git rev-parse --verify --quiet main 
+          if git rev-parse --verify --quiet main ; then
+            echo "true" >> $status
+          else
+            echo "false" >> $status
+          fi
+          
         
       - name: check
         shell: bash
         run: |
-          git rev-parse --verify --quiet branch_name 
+          if git rev-parse --verify --quiet mainer ; then
+            echo "true" >> $status
+          else
+            echo "false" >> $status
+          fi
         
 
         
