@@ -12,22 +12,21 @@ jobs:
         shell: bash
         run: |
           if git rev-parse --verify --quiet main ; then
-            echo "Working"
+            echo "status=true" >> "$GITHUB_OUTPUT"
           else
-            echo "Working NOT"
+            echo "status=false" >> "$GITHUB_OUTPUT"
           fi
         
       - name: check
         shell: bash
         run: |
           if git rev-parse --verify --quiet mainer ; then
-            echo "Working"
+            echo "status=true" >> "$GITHUB_OUTPUT"
           else
-            echo "Working NOT"
+            echo "status=false" >> "$GITHUB_OUTPUT"
           fi
         
 
-        
       - name: Print Status
         run: "echo ${{ steps.check.outputs.status }}"
         
