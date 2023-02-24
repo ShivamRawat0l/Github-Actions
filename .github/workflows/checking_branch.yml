@@ -5,16 +5,17 @@ jobs:
   last-job:
     runs-on: ubuntu-latest
     steps:
-      - name: check
-        shell: bash
-        run: |
-          git rev-parse --verify --quiet branch_name >> $status
-        
       - name: check_again
         shell: bash
         run: |
-          git rev-parse --verify --quiet main >> $status
+          git rev-parse --verify --quiet main 
         
+      - name: check
+        shell: bash
+        run: |
+          git rev-parse --verify --quiet branch_name 
+        
+
         
       - name: Print Status
         run: "echo ${{ steps.check.outputs.status }}"
