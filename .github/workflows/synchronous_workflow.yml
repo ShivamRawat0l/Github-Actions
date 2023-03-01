@@ -12,13 +12,15 @@ on:
           - first 
           - second
 jobs:
-  first-job:
+  job1:
     runs-on: ubuntu-latest
+    if: ${{ github.event.inputs.trigger-job == 'both' ||  github.event.inputs.trigger-job == 'first' }}
     steps:
       - name: Print Status
         run: "echo First Job"
   second-job:
-    needs: [ first-job ]
+    needs: job1
+    if: ${{ github.event.inputs.trigger-job == 'both' ||  github.event.inputs.trigger-job == 'second' }}
     runs-on: ubuntu-latest
     steps:
       - name: Print Status
