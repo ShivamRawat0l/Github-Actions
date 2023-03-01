@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check to exit
-        if: ${{ github.event.inputs.trigger-job == 'both' ||  github.event.inputs.trigger-job == 'first' }}
+        if: ${{ github.event.inputs.trigger-job == 'second' }}
         run: exit 0
       - name: Print Status
         run: "echo First Job"
