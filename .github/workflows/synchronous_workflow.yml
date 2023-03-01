@@ -1,0 +1,26 @@
+name: Synchronous Workflow
+on:
+  workflow-dispatch:
+    inputs:
+        trigger-job:
+          description: 'Which job to run'
+          required: true
+          default: 'both'
+          type: choice
+          options:
+          - both
+          - first 
+          - second
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Status
+        run: "echo First Job"
+  second-job:
+    needs: [ first-job ]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Status
+        run: "echo Second Job "
+        
