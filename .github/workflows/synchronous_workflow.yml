@@ -1,6 +1,6 @@
 name: Synchronous Workflow
 on:
-  workflow-dispatch:
+  workflow_dispatch:
     inputs:
         trigger-job:
           description: 'Which job to run'
